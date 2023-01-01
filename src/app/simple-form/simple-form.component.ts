@@ -23,10 +23,10 @@ export class SimpleFormComponent implements OnInit {
   }
 
   handleSubmit() {
-    if (!this.form.$ref.valid) {
-      return;
-    }
-    this.formSubmitted.emit(this.form.getValue());
+    // if (!this.form.$ref.valid) {
+    //   return;
+    // }
+    // this.formSubmitted.emit(this.form.getValue());
     console.log(this.form.getValue());
   }
 }

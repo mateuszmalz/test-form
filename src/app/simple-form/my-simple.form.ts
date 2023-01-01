@@ -6,7 +6,7 @@ import { SimpleFormValue } from './+model/simple-form.value';
 @Injectable()
 export class MySimpleForm {
 
-  private form: InterfaceWithFormValuesFromBackend | null;
+  private form: any | null;
 
   readonly $ref: FormGroup;
   readonly firstName: FormControl<string>;
@@ -30,13 +30,13 @@ export class MySimpleForm {
 
   getValue(): SimpleFormValue {
     return {
-      firstName: this.firstName.value === this.form.firstName ? null : this.firstName.value,
-      lastName: this.lastName.value === this.form.lastName ? null : this.lastName.value,
-      gender: this.gender.value === this.form.gender ? null : this.gender.value
+      firstName: this.firstName.value === this.form?.firstName ? null : this.firstName.value,
+      lastName: this.lastName.value === this.form?.lastName ? null : this.lastName.value,
+      gender: this.gender.value === this.form?.gender ? null : this.gender.value
     }
   }
 
-  setValue(values: InterfaceWithFormValuesFromBackend): void {
+  setValue(values: any): void {
     this.form = values;
 
     this.firstName.setValue(values.firstname);
