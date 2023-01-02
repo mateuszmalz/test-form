@@ -4,13 +4,14 @@ import { SimpleFormComponent } from './simple-form.component';
 import { FirstNameComponent } from './first-name/first-name.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LastNameComponent } from './last-name/last-name.component';
-
+import { DoubleDropdownModule } from '../+library/double-dropdown/double-dropdown.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DoubleDropdownModule
   ],
   declarations: [
     SimpleFormComponent,
@@ -21,4 +22,4 @@ import { LastNameComponent } from './last-name/last-name.component';
     SimpleFormComponent
   ]
 })
-export class SimpleFormModule { }
+export class SimpleFormModule {}

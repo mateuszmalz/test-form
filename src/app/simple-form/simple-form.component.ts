@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MySimpleForm } from './my-simple.form';
 import { SimpleFormValue } from './+model/simple-form.value';
+import { Country } from '../+library/double-dropdown/+data/country';
 
 @Component({
   selector: 'app-simple-form',
@@ -28,5 +29,9 @@ export class SimpleFormComponent implements OnInit {
     // }
     // this.formSubmitted.emit(this.form.getValue());
     console.log(this.form.getValue());
+  }
+
+  update() {
+    this.form.place.setValue(Country.SPAIN);
   }
 }

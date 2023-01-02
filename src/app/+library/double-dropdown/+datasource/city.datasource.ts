@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
-import { delay, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Country } from '../+data/country';
 
 @Injectable()
 export class CityDatasource {
 
-  getCities(country: Country): Observable<string[]> {
-    let cities;
+  private cities = new BehaviorSubject<string[]>([]);
+  cities$: Observable<string[]> = this.cities;
 
+  loadCities(country: Country): void {
     switch (country) {
       case Country.POLAND:
-        cities = ['Warsaw', 'Krakow'];
+        this.cities.next(['Warsaw', 'Krakow']);
         break;
       case Country.GERMANY:
-        cities = ['Dusseldorf', 'Monachium'];
+        this.cities.next(['Dusseldorf', 'Monachium']);
         break;
       case Country.SPAIN:
-        cities = ['Barcelona', 'Madrid'];
+        this.cities.next(['Barcelona', 'Madrid']);
         break
     }
-
-    return of(cities).pipe(delay(500));
   }
 }

@@ -1,7 +1,12 @@
 <form>
-    Id: {{ '542' }}<br>
+  Id: {{ '542' }}<br>
 
   <app-first-name></app-first-name>
   <app-last-name></app-last-name>
+  <app-double-dropdown></app-double-dropdown>
+
+  <br>
   <button type="button" (click)="handleSubmit()">Submit</button>
 </form>
+
+<button type="button" (click)="update()">setval</button>

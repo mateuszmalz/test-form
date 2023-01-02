@@ -1,20 +1,21 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { CountryDatasource } from './+datasource/country.datasource';
 import { CityDatasource } from './+datasource/city.datasource';
+import { MySimpleForm } from '../../simple-form/my-simple.form';
 
 @Component({
   selector: 'app-double-dropdown',
   templateUrl: './double-dropdown.component.html',
   styleUrls: ['./double-dropdown.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    CityDatasource,
+  ]
 })
 export class DoubleDropdownComponent implements OnInit {
 
-  constructor(public countryDS: CountryDatasource,
-              public cityDS: CityDatasource) {
+  constructor(public form: MySimpleForm) {
   }
 
   ngOnInit(): void {
   }
-
 }
